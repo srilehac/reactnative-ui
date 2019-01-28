@@ -12,6 +12,9 @@ import calender from './pages/screens/calender';
 // import loading from './pages/screens/loading';
  import sample from './pages/screens/sample';
  import addbuilding from './pages/screens/addbuilding';
+ import assessment from './pages/screens/assessment';
+ import image from './pages/screens/image';
+
 
 
 const Navigator = createStackNavigator({

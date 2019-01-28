@@ -19,7 +19,9 @@ export default class App extends Component {
     this.state = {
       selectedStartDate: '',
       time: '',
-      date:''
+      date:'',
+      buttonColor: 'red',
+
 
     };
     this.onDateChange = this.onDateChange.bind(this);
@@ -30,10 +32,12 @@ export default class App extends Component {
   text(time) {
   
     this.setState ({
-        time: time
+        time: time,
+        buttonColor: 'someNewColor'
 
     });
     console.warn("time",time);
+   
   
   }
   
@@ -122,7 +126,7 @@ export default class App extends Component {
 
          <View flexDirection='row'>
          <Image
-        source={require('../images/mic.png')}
+        source={require('../images/schedule.png')}
         style={{width: 30, height: 40, borderRadius: 10,marginLeft:10 }}>
         </Image> 
       <Text style={styles.welcome}> Radisson Sharjah</Text>
@@ -130,35 +134,49 @@ export default class App extends Component {
       
 
          <View style={styles.time}>
-         <TouchableOpacity>
-         <Text onPress={()=> this.text('8-10 am')} style={styles.text}>8-10 am</Text>
+         <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={()=> this.text('8-10 am')}>
+         <Text style={styles.text}>8-10 am</Text>
+        </TouchableOpacity>
+
+         <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={()=> this.text('10-12 am')}> 
+         <Text style={styles.text1}>10-12 am</Text>
          </TouchableOpacity>
 
-         <TouchableHighlight background={TouchableNativeFeedback.Ripple('red')}>
-         <Text onPress={()=> this.text('10-12 am')} style={styles.text1}>10-12 am</Text>
-         </TouchableHighlight>
+         <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={()=> this.text('12-2 pm')} >
+          <Text style={styles.text1}>12-2 pm</Text>
+        </TouchableOpacity>
 
-         <TouchableHighlight>
-         <Text onPress={()=> this.text('12-2 pm')} style={styles.text1}>12-2 pm</Text>
-         </TouchableHighlight>
-
-         <TouchableHighlight>
-         <Text onPress={()=> this.text('2-4 pm')} style={styles.text1}>2-4 pm</Text>
-         </TouchableHighlight>
+          <TouchableOpacity 
+          activeOpacity={.5}
+         onPress={()=> this.text('2-4 pm')}> 
+         <Text style={styles.text1}>2-4 pm</Text>
+         </TouchableOpacity> 
          </View>
 
           <View style={styles.time1}>
-         <TouchableHighlight>
-         <Text onPress={()=> this.text('4-6 pm')} style={styles.textt}>4-6 pm</Text>
-         </TouchableHighlight>
+          <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={()=> this.text('4-6 pm')}> 
+          <Text style={styles.textt}>4-6 pm</Text>
+          </TouchableOpacity>
 
-         <TouchableHighlight>
-         <Text onPress={()=> this.text('6-8 pm')} style={styles.text11}>6-8 pm</Text>
-         </TouchableHighlight>
+          <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={()=> this.text('6-8 pm')}> 
+          <Text style={styles.text11}>6-8 pm</Text>
+         </TouchableOpacity>
 
-         <TouchableHighlight>
-         <Text onPress={()=> this.text('8-10 pm')} style={styles.text2}>8-10 pm</Text> 
-         </TouchableHighlight>
+         <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={()=> this.text('8-10 pm')}>
+          <Text style={styles.text2}>8-10 pm</Text> 
+        </TouchableOpacity> 
          </View> 
        
 
@@ -192,7 +210,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     borderColor: '#bbb',
     padding: 10,
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
+    backgroundColor: 'red'
   },
   container: {
     flex: 1,
